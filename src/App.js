@@ -6,8 +6,7 @@ import profilePic from './harsha.jpeg';
 const Portfolio = () => {
   const [cursorParticles, setCursorParticles] = useState([]);
   const [logs, setLogs] = useState(["[+] Monitoring network..."]);
-  const canvasRef = useRef(null);
-  const particleIdRef = useRef(0);
+  const particleIdRef = useRef(0); // ✅ keep this (used)
 
   // Cursor particles
   const handleMouseMove = (e) => {
