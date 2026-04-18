@@ -24,7 +24,7 @@ body {
   background: black;
   padding: 10px;
   border-bottom: 1px solid #00ff9f;
-  z-index: 1000; /* ✅ ensure above everything */
+  z-index: 1000;
 }
 
 .navbar ul {
@@ -50,8 +50,8 @@ body {
 
 .hero-content {
   text-align: center;
-  position: relative;      /* ✅ FIX */
-  z-index: 2;              /* ✅ bring above matrix */
+  position: relative;
+  z-index: 2;
 }
 
 .profile-image {
@@ -59,12 +59,12 @@ body {
   border-radius: 50%;
 }
 
-/* 🔥 TERMINAL TEXT FIX */
+/* TERMINAL TEXT */
 .hero-subtitle {
   color: #00ff9f;
   font-size: 14px;
   margin-top: 10px;
-  min-height: 20px; /* prevents collapse */
+  min-height: 20px;
   letter-spacing: 1px;
 }
 
@@ -80,14 +80,14 @@ body {
 /* SECTIONS */
 .section {
   padding: 80px 20px;
-  position: relative;   /* ✅ FIX */
-  z-index: 2;           /* ✅ bring above matrix */
+  position: relative;
+  z-index: 2;
 }
 
 .content-box {
   border: 1px solid #00ff9f;
   padding: 20px;
-  background: rgba(0,0,0,0.7); /* ✅ makes text readable */
+  background: rgba(0,0,0,0.7);
 }
 
 /* TERMINAL BOX */
@@ -107,4 +107,35 @@ body {
 .dashboard-card {
   border: 1px solid #00ff9f;
   padding: 20px;
+}
+
+/* 🔥 NEW: LIVE TERMINAL */
+.terminal-live {
+  background: black;
+  border: 1px solid #00ff9f;
+  padding: 15px;
+  height: 220px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00ff9f;
+  font-size: 13px;
+}
+
+.terminal-live p {
+  margin: 4px 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 🔥 EXTRA POLISH */
+.hero-title {
+  text-shadow: 0 0 10px #00ff9f;
+}
+
+.content-box:hover {
+  box-shadow: 0 0 20px #00ff9f;
+  transition: 0.3s;
 }
