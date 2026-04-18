@@ -5,6 +5,21 @@ import profilePic from './harsha.jpeg';
 
 const Portfolio = () => {
   const [logs, setLogs] = useState(["[+] Monitoring network..."]);
+  const [typedText, setTypedText] = useState("");
+
+  const fullText = "root@harsha:~# Cybersecurity Engineer | Ethical Hacker";
+
+  // Typing effect
+  useEffect(() => {
+    let i = 0;
+    const typing = setInterval(() => {
+      setTypedText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(typing);
+    }, 40);
+
+    return () => clearInterval(typing);
+  }, []);
 
   // Fake logs
   useEffect(() => {
@@ -43,9 +58,12 @@ const Portfolio = () => {
         <div className="hero-content">
           <img src={profilePic} alt="profile" className="profile-image" />
           <h1 className="hero-title">K HARSHA VARDHAN CHOWDARY</h1>
+
           <p className="hero-subtitle">
-            root@harsha:~# Cybersecurity Engineer | Ethical Hacker
+            {typedText}
+            <span className="cursor">|</span>
           </p>
+
           <div className="hero-tagline">
             <Shield /> Securing Digital Frontiers
           </div>
