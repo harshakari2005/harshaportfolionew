@@ -4,6 +4,7 @@ body {
   background: black;
   color: #00ff9f;
   font-family: 'Courier New', monospace;
+  scroll-behavior: smooth; /* ✅ smooth scroll */
 }
 
 /* MATRIX */
@@ -32,11 +33,18 @@ body {
   justify-content: center;
   list-style: none;
   gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar a {
   color: #00ff9f;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  text-shadow: 0 0 10px #00ff9f;
 }
 
 /* HERO */
@@ -57,6 +65,7 @@ body {
 .profile-image {
   width: 140px;
   border-radius: 50%;
+  box-shadow: 0 0 15px #00ff9f; /* ✅ glow */
 }
 
 /* TERMINAL TEXT */
@@ -88,6 +97,11 @@ body {
   border: 1px solid #00ff9f;
   padding: 20px;
   background: rgba(0,0,0,0.7);
+  transition: 0.3s;
+}
+
+.content-box:hover {
+  box-shadow: 0 0 20px #00ff9f;
 }
 
 /* TERMINAL BOX */
@@ -102,24 +116,41 @@ body {
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
 .dashboard-card {
   border: 1px solid #00ff9f;
   padding: 20px;
+  transition: 0.3s;
 }
 
-/* 🔥 NEW: LIVE TERMINAL */
+.dashboard-card:hover {
+  box-shadow: 0 0 15px #00ff9f;
+  transform: scale(1.03);
+}
+
+/* 🔥 LIVE TERMINAL */
 .terminal-live {
   background: black;
   border: 1px solid #00ff9f;
   padding: 15px;
   height: 220px;
-  overflow: hidden;
+  overflow-y: auto; /* ✅ scroll enabled */
   box-shadow: 0 0 20px #00ff9f;
   font-size: 13px;
 }
 
+/* scrollbar styling */
+.terminal-live::-webkit-scrollbar {
+  width: 5px;
+}
+
+.terminal-live::-webkit-scrollbar-thumb {
+  background: #00ff9f;
+}
+
+/* terminal lines */
 .terminal-live p {
   margin: 4px 0;
   animation: fadeIn 0.3s ease-in;
@@ -130,12 +161,46 @@ body {
   to { opacity: 1; }
 }
 
+/* 🔥 TERMINAL INPUT (NEW IMPORTANT) */
+.terminal-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid #00ff9f;
+  padding-top: 8px;
+}
+
+.terminal-input span {
+  margin-right: 5px;
+}
+
+.terminal-input input {
+  background: black;
+  border: none;
+  color: #00ff9f;
+  outline: none;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
 /* 🔥 EXTRA POLISH */
 .hero-title {
   text-shadow: 0 0 10px #00ff9f;
 }
 
-.content-box:hover {
-  box-shadow: 0 0 20px #00ff9f;
-  transition: 0.3s;
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 18px;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
 }
