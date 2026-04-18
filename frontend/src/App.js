@@ -1,24 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield } from 'lucide-react';
 import './App.css';
 import profilePic from './harsha.jpeg';
 
 const Portfolio = () => {
-  const [cursorParticles, setCursorParticles] = useState([]);
   const [logs, setLogs] = useState(["[+] Monitoring network..."]);
-  const particleIdRef = useRef(0); // ✅ keep this (used)
 
-  // Cursor particles
-  const handleMouseMove = (e) => {
-    const newParticle = {
-      id: particleIdRef.current++,
-      x: e.clientX,
-      y: e.clientY
-    };
-    setCursorParticles(prev => [...prev, newParticle].slice(-40));
-  };
-
-  // Fake live logs
+  // Fake logs
   useEffect(() => {
     const interval = setInterval(() => {
       const messages = [
@@ -35,15 +23,23 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="portfolio-container" onMouseMove={handleMouseMove}>
-      
-      {/* Cursor particles */}
-      {cursorParticles.map(p => (
-        <div key={p.id} className="cursor-particle" style={{ left: p.x, top: p.y }} />
-      ))}
+    <div className="portfolio-container">
+
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
       {/* HERO */}
-      <section className="hero-section">
+      <section id="home" className="hero-section">
         <div className="hero-content">
           <img src={profilePic} alt="profile" className="profile-image" />
           <h1 className="hero-title">K HARSHA VARDHAN CHOWDARY</h1>
@@ -57,7 +53,7 @@ const Portfolio = () => {
       </section>
 
       {/* ABOUT */}
-      <section className="section">
+      <section id="about" className="section">
         <div className="content-box">
           <h2 className="section-title">About Me</h2>
 
@@ -78,7 +74,7 @@ const Portfolio = () => {
       </section>
 
       {/* EXPERIENCE */}
-      <section className="section">
+      <section id="experience" className="section">
         <div className="content-box">
           <h2 className="section-title">Experience</h2>
 
@@ -86,14 +82,60 @@ const Portfolio = () => {
           <p>SSEV SOFTSOLS | 2026</p>
 
           <p>
-            Worked on securing embedded and IoT systems (ESP32, Raspberry Pi,
-            NVIDIA Jetson) by performing vulnerability assessments, system hardening,
-            and network monitoring using tools like Wireshark and Nmap.
+            Secured ESP32, Raspberry Pi, and Jetson systems with vulnerability
+            assessment, system hardening, and network monitoring.
           </p>
         </div>
       </section>
 
-      {/* CYBER DASHBOARD */}
+      {/* PROJECTS */}
+      <section id="projects" className="section">
+        <div className="content-box">
+          <h2 className="section-title">Projects</h2>
+
+          <p>Phishing Detection System (ML)</p>
+          <p>DDoS Detection System (MOTAG)</p>
+          <p>Memory Forensics Investigation</p>
+          <p>Automated Vulnerability Scanner</p>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="section">
+        <div className="content-box">
+          <h2 className="section-title">Skills</h2>
+
+          <p>Python, C, Java, SQL</p>
+          <p>Wireshark, Nmap, Burp Suite, SIEM</p>
+          <p>Linux, IDS/IPS, Network Security</p>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS */}
+      <section id="certifications" className="section">
+        <div className="content-box">
+          <h2 className="section-title">Certifications</h2>
+
+          <ul>
+            <li>EC-Council Cloud Computing</li>
+            <li>IIT Roorkee Cyber Security Program</li>
+            <li>Cisco Cybersecurity</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="section">
+        <div className="content-box">
+          <h2 className="section-title">Contact</h2>
+
+          <p>📞 +91 8019252777</p>
+          <p>📧 hvckari@gmail.com</p>
+          <p>📍 Hyderabad</p>
+        </div>
+      </section>
+
+      {/* DASHBOARD */}
       <section className="section">
         <div className="content-box">
           <h2 className="section-title">Cyber Threat Dashboard</h2>
