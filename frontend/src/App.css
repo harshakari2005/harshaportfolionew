@@ -1,71 +1,38 @@
-body {
-  margin: 0;
-  background: radial-gradient(circle at center, #001a12, #000);
-  color: #00ff9f;
-  font-family: 'Courier New', monospace;
-}
-
-.hero-content {
-  text-align: center;
-  padding: 40px;
-  border: 1px solid #00ff9f;
-  box-shadow: 0 0 30px #00ff9f;
-}
-
-.hero-title {
-  text-shadow: 0 0 20px #00ff9f;
-}
-
-.section {
-  padding: 60px;
-}
-
-.section-title {
-  border-left: 4px solid #00ff9f;
-  padding-left: 10px;
-}
-
-.terminal-box {
-  background: black;
-  border: 1px solid #00ff9f;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 0 0 20px #00ff9f;
-}
-
-.cursor-particle {
+/* NAVBAR */
+.navbar {
   position: fixed;
-  width: 6px;
-  height: 6px;
-  background: #00ff9f;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00ff9f;
+  top: 0;
+  width: 100%;
+  background: black;
+  padding: 10px;
+  z-index: 1000;
+  border-bottom: 1px solid #00ff9f;
 }
 
-.profile-image {
-  width: 120px;
-  border-radius: 50%;
-  box-shadow: 0 0 20px #00ff9f;
-}
-
-/* DASHBOARD */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
   gap: 20px;
+  padding: 0;
 }
 
-.dashboard-card {
-  border: 1px solid #00ff9f;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,255,159,0.3);
-}
-
-.threat-high {
-  color: red;
-}
-
-.status-active {
+.navbar a {
   color: #00ff9f;
+  text-decoration: none;
+  font-family: monospace;
+}
+
+.navbar a:hover {
+  color: #00ffaa;
+}
+
+/* spacing for navbar */
+.hero-section {
+  margin-top: 60px;
+}
+
+/* REMOVE CURSOR DOTS COMPLETELY */
+.cursor-particle {
+  display: none;
 }
