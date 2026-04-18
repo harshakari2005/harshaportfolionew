@@ -1,3 +1,4 @@
+/* EXISTING */
 body {
   margin: 0;
   background: black;
@@ -23,6 +24,7 @@ body {
   background: black;
   padding: 10px;
   border-bottom: 1px solid #00ff9f;
+  z-index: 1000; /* ✅ ensure above everything */
 }
 
 .navbar ul {
@@ -48,6 +50,8 @@ body {
 
 .hero-content {
   text-align: center;
+  position: relative;      /* ✅ FIX */
+  z-index: 2;              /* ✅ bring above matrix */
 }
 
 .profile-image {
@@ -55,20 +59,43 @@ body {
   border-radius: 50%;
 }
 
+/* 🔥 TERMINAL TEXT FIX */
+.hero-subtitle {
+  color: #00ff9f;
+  font-size: 14px;
+  margin-top: 10px;
+  min-height: 20px; /* prevents collapse */
+  letter-spacing: 1px;
+}
+
 /* CURSOR */
 .cursor {
   animation: blink 1s infinite;
 }
-@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes blink { 
+  50% { opacity: 0; } 
+}
 
 /* SECTIONS */
 .section {
   padding: 80px 20px;
+  position: relative;   /* ✅ FIX */
+  z-index: 2;           /* ✅ bring above matrix */
 }
 
 .content-box {
   border: 1px solid #00ff9f;
   padding: 20px;
+  background: rgba(0,0,0,0.7); /* ✅ makes text readable */
+}
+
+/* TERMINAL BOX */
+.terminal-box {
+  background: black;
+  border: 1px solid #00ff9f;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 /* DASHBOARD */
